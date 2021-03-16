@@ -2,6 +2,7 @@
   "name": "equipment",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://10.17.87.50:8080",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -11,6 +12,7 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
     "antd": "^4.14.0",
+    "axios": "^0.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",

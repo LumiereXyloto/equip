@@ -4,9 +4,10 @@ import { Layout, Menu } from 'antd';
 import { DesktopOutlined, FileOutlined } from '@ant-design/icons';
 import './App.css';
 import 'antd/dist/antd.css';
-import { Equipment } from './pages/equipment';
+import { Equipment } from './pages/equipment/EquipList';
+import { Add } from './pages/equipment/AddEquip';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
             <Menu.Item key='3'>
               <Link to='/equipment'>设备台账</Link>
             </Menu.Item>
+            <Menu.Item key='2'>
+              <Link to='/equipment/add'>录入设备</Link>
+            </Menu.Item>
           </SubMenu>
           <SubMenu key='sub2' icon={<FileOutlined />} title='工单管理'>
             <Menu.Item key='6'>Team 1</Menu.Item>
@@ -41,6 +45,7 @@ function App() {
           >
             <Switch>
               <Route exact path='/equipment' component={Equipment} />
+              <Route exact path='/equipment/add' component={Add} />
             </Switch>
           </div>
         </Content>
