@@ -20,7 +20,19 @@ function App() {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-        <div className='logo' />
+        <div
+          style={{
+            height: '64px',
+            lineHeight: '64px',
+            color: '#dddddd',
+            fontWeight: 'bold',
+            paddingLeft: '24px',
+            fontSize: '18px',
+            letterSpacing: '1px',
+          }}
+        >
+          企业设备管理系统
+        </div>
         <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline'>
           <SubMenu key='sub1' icon={<DesktopOutlined />} title='设备管理'>
             <Menu.Item key='3'>
@@ -38,10 +50,10 @@ function App() {
       </Sider>
       <Layout className='site-layout'>
         <Header className='site-layout-background' style={{ padding: 0 }} />
-        <Content style={{ margin: '0 16px' }}>
+        <Content>
           <div
             className='site-layout-background App'
-            style={{ padding: '24px 8px', minHeight: 360 }}
+            style={{ padding: '24px', minHeight: 360 }}
           >
             <Switch>
               <Route exact path='/equipment' component={Equipment} />

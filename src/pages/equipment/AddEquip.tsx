@@ -1,5 +1,6 @@
-import React from 'react';
-import { Form, Button, Input } from 'antd';
+import React, { useEffect } from 'react';
+import { Form, Button, Input, message } from 'antd';
+import { useAdd } from './useAdd';
 
 const layout = {
   labelCol: { span: 6 },
@@ -11,8 +12,19 @@ const tailLayout = {
 };
 
 export const Add = () => {
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
+  const { submit, success } = useAdd();
+
+  const [form] = Form.useForm();
+
+  useEffect(() => {
+    if (success) {
+      message.success('录入成功');
+      form.resetFields();
+    }
+  }, [success]);
+
+  const handleFinish = (values: any) => {
+    submit(values);
   };
 
   return (
@@ -24,7 +36,12 @@ export const Add = () => {
         backgroundColor: '#fff',
       }}
     >
-      <Form onFinish={onFinish} {...layout} style={{ width: 560 }}>
+      <Form
+        onFinish={handleFinish}
+        {...layout}
+        style={{ width: 560 }}
+        form={form}
+      >
         <Form.Item
           label='设备名称'
           name='name'

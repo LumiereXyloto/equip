@@ -6,7 +6,6 @@ const { Column, ColumnGroup } = Table;
 
 export const Equipment = () => {
   const { loading, data } = useList();
-  console.log(data);
   return (
     <div>
       <Table dataSource={data} loading={loading}>
