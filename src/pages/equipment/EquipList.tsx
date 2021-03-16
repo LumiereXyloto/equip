@@ -8,7 +8,7 @@ export const Equipment = () => {
   const { loading, data } = useList();
   return (
     <div>
-      <Table dataSource={data} loading={loading}>
+      <Table dataSource={data} loading={loading} rowKey='id'>
         <Column title='ID' dataIndex='id' key='id' />
         <Column title='设备名称' dataIndex='name' key='name' />
         <Column title='设备类型' dataIndex='type' key='type' />
