@@ -11,11 +11,11 @@ export interface Order {
 	order_desc: string;
 	creator: string;
 	handler: string;
-	handler_desc?: string;
-	order_status?: Status;
-	create_time?: string;
-	update_time?: string;
-	del?: 0 | 1;
+	handler_desc: string;
+	order_status: Status;
+	create_time: string;
+	update_time: string;
+	del: 0 | 1;
 }
 
 export interface PostOrder {
