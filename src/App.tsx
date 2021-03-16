@@ -6,6 +6,7 @@ import './App.css';
 import 'antd/dist/antd.css';
 import { Equipment } from './pages/equipment/EquipList';
 import { Add } from './pages/equipment/AddEquip';
+import { AddOrder } from './pages/workorder/index';
 
 const { Header, Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -46,6 +47,7 @@ function App() {
             <Switch>
               <Route exact path='/equipment' component={Equipment} />
               <Route exact path='/equipment/add' component={Add} />
+              <Route exact path='/order/add' component={AddOrder} />
             </Switch>
           </div>
         </Content>
