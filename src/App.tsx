@@ -41,7 +41,7 @@ function App() {
         <Content style={{ margin: '0 16px' }}>
           <div
             className='site-layout-background App'
-            style={{ padding: 24, minHeight: 360 }}
+            style={{ padding: '24px 8px', minHeight: 360 }}
           >
             <Switch>
               <Route exact path='/equipment' component={Equipment} />

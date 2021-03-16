@@ -5,41 +5,21 @@ import { useList } from './useList';
 const { Column, ColumnGroup } = Table;
 
 export const Equipment = () => {
-  useList();
+  const { loading, data } = useList();
+  console.log(data);
   return (
     <div>
-      {/* <Table dataSource={[]}>
-    <ColumnGroup title="Name">
-      <Column title="First Name" dataIndex="firstName" key="firstName" />
-      <Column title="Last Name" dataIndex="lastName" key="lastName" />
-    </ColumnGroup>
-    <Column title="Age" dataIndex="age" key="age" />
-    <Column title="Address" dataIndex="address" key="address" />
-    <Column
-      title="Tags"
-      dataIndex="tags"
-      key="tags"
-      render={tags => (
-        <>
-          {tags.map([] => (
-            <Tag color="blue" key={tag}>
-              {tag}
-            </Tag>
-          ))}
-        </>
-      )}
-    />
-    <Column
-      title="Action"
-      key="action"
-      render={(text, record) => (
-        <Space size="middle">
-          <a>Invite {1}</a>
-          <a>Delete</a>
-        </Space>
-      )}
-    />
-  </Table> */}
+      <Table dataSource={data} loading={loading}>
+        <Column title='ID' dataIndex='id' key='id' />
+        <Column title='设备名称' dataIndex='name' key='name' />
+        <Column title='设备类型' dataIndex='type' key='type' />
+        <Column title='负责人' dataIndex='duty' key='duty' />
+        <Column title='设备状态' dataIndex='status' key='status' />
+        <Column title='设备地址' dataIndex='location' key='location' />
+        <Column title='安装时间' dataIndex='installTime' key='installTime' />
+        <Column title='生产厂家' dataIndex='producer' key='producer' />
+        <Column title='生产时间' dataIndex='produceTime' key='produceTime' />
+      </Table>
     </div>
   );
 };
