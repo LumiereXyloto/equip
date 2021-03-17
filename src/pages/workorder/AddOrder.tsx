@@ -1,21 +1,28 @@
-import React, { ReactElement } from 'react'
-import { Form, Input, Button, Radio } from 'antd';
+import React, { ReactElement, useEffect } from 'react'
+import { Form, Input, Button, Radio, message } from 'antd';
 import { PostOrder } from './types/order';
-import { postNewOrder } from './api/order';
+import { useAddOrder } from './hooks/useAddOrder';
 
 
 const AddOrder = (): ReactElement => {
+  const { success, submit} = useAddOrder();
+  const [form] = Form.useForm();
+  
+  useEffect(() => {
+    if (success) {
+      form.resetFields();
+      message.success('提交成功!')
+    }
+  }, [success]);
 
-  const SubmitInfo = (props: PostOrder) => {
-    postNewOrder(props);
-  }
   return (
     <>
       <Form
         labelCol={{ span: 2 }}
         wrapperCol={{ span: 6 }}
         layout="horizontal"
-        onFinish={SubmitInfo}
+        form={form}
+        onFinish={submit}
       >
         <Form.Item 
           label="工单名称" 

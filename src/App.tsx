@@ -44,8 +44,12 @@ function App() {
             </Menu.Item>
           </SubMenu>
           <SubMenu key='sub2' icon={<FileOutlined />} title='工单管理'>
-            <Menu.Item key='6'>Team 1</Menu.Item>
-            <Menu.Item key='8'>Team 2</Menu.Item>
+            <Menu.Item key='6'>
+              <Link to='/order'>工单列表</Link>
+            </Menu.Item>
+            <Menu.Item key='8'>
+              <Link to='/order/add'>工单上报</Link>
+            </Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>

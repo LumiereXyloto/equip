@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react'
 import { Table, Space, Button } from 'antd';
 import { Order, Status } from './types/order';
-import { getOrders } from './api/order';
 import { useOrderList } from './hooks/useOrderList';
 import { OrderStatus } from './components';
 
