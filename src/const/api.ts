@@ -6,6 +6,6 @@ export const DEVICE_ADD = '/devicemanage/device/add';
 
 // 工单管理
 
-export const GET_ORDERS = 'ordermanage/order/'
-export const NEW_ORDER = 'ordermanage/order/neworder';
-export const EXECUTE_ORDER = 'ordermanage/order/excute';
+export const GET_ORDERS = '/devicemanage/order/getOrders'
+export const NEW_ORDER = '/devicemanage/order/postNewOrder';
+export const EXECUTE_ORDER = '/devicemanage/order/updateOrder';

@@ -1,19 +1,21 @@
-import React, { ReactElement, useEffect } from 'react'
-import { Form, Input, Button, Radio, message } from 'antd';
-import { PostOrder } from './types/order';
-import { useAddOrder } from './hooks/useAddOrder';
+import React, { ReactElement, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Form, Input, InputNumber, Button, Radio, message } from 'antd';
+import { useAddOrder } from './hooks';
 
 
 const AddOrder = (): ReactElement => {
   const { success, submit} = useAddOrder();
+  const history = useHistory();
   const [form] = Form.useForm();
   
   useEffect(() => {
     if (success) {
       form.resetFields();
       message.success('提交成功!')
+      history.replace('/order');
     }
-  }, [success]);
+  }, [success, form, history]);
 
   return (
     <>
@@ -26,7 +28,7 @@ const AddOrder = (): ReactElement => {
       >
         <Form.Item 
           label="工单名称" 
-          name="order_name"
+          name="orderName"
           rules={[
             {
               type: 'string',
@@ -41,8 +43,24 @@ const AddOrder = (): ReactElement => {
           <Input />
         </Form.Item>
         <Form.Item 
+          label="设备id" 
+          name="deviceId"
+          rules={[
+            {
+              type: 'number',
+              message: '请输入数字'
+            },
+            {
+              required: true,
+              message: '请填写设备ID',
+            }
+          ]}
+        >
+          <InputNumber />
+        </Form.Item>
+        <Form.Item 
           label="类型" 
-          name="order_type"
+          name="orderType"
           initialValue="1"
         >
           <Radio.Group>
@@ -54,7 +72,7 @@ const AddOrder = (): ReactElement => {
         </Form.Item>
         <Form.Item 
           label="工单详情" 
-          name="order_desc"
+          name="orderDesc"
           rules={[
             {
               type: 'string',
